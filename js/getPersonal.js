@@ -132,12 +132,10 @@ function getPersonalTweets(){
           else{
             for(var x in res["statuses"]){
                 if(res["statuses"][x]["coordinates"]!=null){
-                  //var contentString = '<tr class="tweet"><td><a href="http://www.twitter.com/'+res["statuses"][x]["user"]["screen_name"]+'" target="_blank"><img class="avi" src="'+res["statuses"][x]["user"]["profile_image_url"]+'"></a></td><td><a href="http://www.twitter.com/'+res["statuses"][x]["user"]["screen_name"]+'" target="_blank">@'+res["statuses"][x]["user"]["screen_name"]+' </a>:'+res["statuses"][x]["text"]+'</td></tr>';
                   var myLatlng = new google.maps.LatLng(res["statuses"][x]["coordinates"]["coordinates"]["1"],res["statuses"][x]["coordinates"]["coordinates"]["0"]);
                   marker = new google.maps.Marker({
                   position: myLatlng,
                   animation: google.maps.Animation.DROP,
-                  ///icon: "img/tweetmarker1.png",
                   icon: res["statuses"][x]["user"]["profile_image_url"],
                   title: "@"+res["statuses"][x]["user"]["screen_name"]+': '+res["statuses"][x]["text"]
                   });
