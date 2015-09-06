@@ -15,7 +15,7 @@ Usage
 1. Create a new app on https://apps.twitter.com/ 
 2. Enter your credentials in the `getPersonalTweets.php` file.
 
-Thats it!.
+Thats it !
 
 Screenshots
 -----------
