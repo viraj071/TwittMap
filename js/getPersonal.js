@@ -26,11 +26,10 @@ function initialize() {
   }
   
   function coordinates(position){
-      
       var pos = new google.maps.LatLng(position.coords.latitude,
                                       position.coords.longitude);      
-      dat.lon=pos.B;
-      dat.lat=pos.k;
+      dat.lon=pos.lng();
+      dat.lat=pos.lat();
       var myLatlng = new google.maps.LatLng(dat.lat,dat.lon);
       marker = new google.maps.Marker({
         position: myLatlng,
@@ -116,7 +115,6 @@ $(document).ready(function() {
 });
 
 function getPersonalTweets(){
-  console.log(dat);
   deleteMarkers();
   $("#jstweets").empty();
   $.ajax({
@@ -124,8 +122,10 @@ function getPersonalTweets(){
         url: 'php/getPersonalTweets.php',
         data: dat,
         dataType : 'json',
+        error: function (error){
+            console.log(error);
+        },
         success: function( res ) {
-          //console.log(res["statuses"].length);
           if(res["statuses"].length==0){
             $("#jstweets").append("<p><h2>Sorry Nothing to display here !</h2></p>");
           }

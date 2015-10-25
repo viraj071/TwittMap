@@ -10,7 +10,6 @@ $settings = array(
     'consumer_secret' => "Your consumer secret here"
 );
 $q = $_REQUEST['q'];
-$q = mysql_real_escape_string($q);
 $lat = $_REQUEST['lat'];
 $lon = $_REQUEST['lon'];
 $rad = $_REQUEST['rad'];
